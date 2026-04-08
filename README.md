@@ -14,41 +14,45 @@ This Project teaches how build an end-to-end MLOps pipeline that analyzes YouTub
 
 ---
 
-## 🖥️ EC2 Setup & MLflow Installation (All Commands)
+## 🖥️ EC2 Setup & MLflow Installation
 
-```bash
-# Update system
-sudo apt update
+### Run the following commands:
 
-# Install dependencies
-sudo apt install -y python3-pip
-sudo apt install -y pipenv
-sudo apt install -y virtualenv
+    # Update system
+    sudo apt update
 
-# Create project directory
-mkdir mlflow
-cd mlflow
+    # Install dependencies
+    sudo apt install -y python3-pip
+    sudo apt install -y pipenv
+    sudo apt install -y virtualenv
 
-# Install required packages
-pipenv install mlflow
-pipenv install awscli
-pipenv install boto3
+    # Create project directory
+    mkdir mlflow
+    cd mlflow
 
-# Activate environment
-pipenv shell
+    # Install required packages
+    pipenv install mlflow
+    pipenv install awscli
+    pipenv install boto3
 
-# Start MLflow server
-mlflow server \
---backend-store-uri sqlite:///mlflow.db \
---default-artifact-root s3://ml-flows-bucket-011 \
---host 0.0.0.0 \
---port 5000 \
---allowed-hosts '*'
+    # Activate environment
+    pipenv shell
 
-🌐 Access MLflow UI
-Open EC2 Public IPv4 DNS
-Use port: 5000
+    # Start MLflow server
+    mlflow server \
+    --backend-store-uri sqlite:///mlflow.db \
+    --default-artifact-root s3://ml-flows-bucket-011 \
+    --host 0.0.0.0 \
+    --port 5000 \
+    --allowed-hosts '*'
+
+---
+
+## 🌐 Access MLflow UI
+
+- Open EC2 **Public IPv4 DNS**
+- Use port: `5000`
 
 Example:
 
-http://<EC2-PUBLIC-DNS>:5000
+    http://<EC2-PUBLIC-DNS>:5000
