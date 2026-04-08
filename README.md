@@ -44,3 +44,11 @@ mlflow server \
 --host 0.0.0.0 \
 --port 5000 \
 --allowed-hosts '*'
+
+🌐 Access MLflow UI
+Open EC2 Public IPv4 DNS
+Use port: 5000
+
+Example:
+
+http://<EC2-PUBLIC-DNS>:5000
