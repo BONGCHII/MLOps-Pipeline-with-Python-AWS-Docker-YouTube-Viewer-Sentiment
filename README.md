@@ -14,14 +14,33 @@ This Project teaches how build an end-to-end MLOps pipeline that analyzes YouTub
 
 ---
 
-## 🖥️ EC2 Setup
+## 🖥️ EC2 Setup & MLflow Installation (All Commands)
 
-### Install Dependencies
 ```bash
+# Update system
 sudo apt update
 
-sudo apt install python3-pip
+# Install dependencies
+sudo apt install -y python3-pip
+sudo apt install -y pipenv
+sudo apt install -y virtualenv
 
-sudo apt install pipenv
+# Create project directory
+mkdir mlflow
+cd mlflow
 
-sudo apt install virtualenv
+# Install required packages
+pipenv install mlflow
+pipenv install awscli
+pipenv install boto3
+
+# Activate environment
+pipenv shell
+
+# Start MLflow server
+mlflow server \
+--backend-store-uri sqlite:///mlflow.db \
+--default-artifact-root s3://ml-flows-bucket-011 \
+--host 0.0.0.0 \
+--port 5000 \
+--allowed-hosts '*'
