@@ -49,7 +49,7 @@ mkdir mlflow
 cd mlflow
 
 # Install required packages
-pipenv install mlflow
+pipenv install mlflow==2.21.0
 pipenv install awscli
 pipenv install boto3
 
@@ -61,8 +61,7 @@ mlflow server \
   --backend-store-uri sqlite:///mlflow.db \
   --default-artifact-root s3://ml-flows-bucket-011 \
   --host 0.0.0.0 \
-  --port 5000 \
-  --allowed-hosts '*'
+  --port 5000
 ```
 
 ---
